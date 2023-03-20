@@ -5,8 +5,8 @@
 ; ウインドウを表示するのではなくて、文字を出力するだけ
 gusupf_cleatedDateStartUp2(){
 	version := "v1.00"
-	cleatedDate := "2022年3月13日"
-	softName := "TextWriteStartUp"
+	cleatedDate := "2023年3月20日"
+	softName := "WriteStartupBU"
 
 	message := "`nソフト名　　：　" . softName . "`nバージョン　：　" . version . "`n更新日　　 ：　" . cleatedDate . "`n作者　　　　：　ブランボン`n"
 	message .= "AHKのバージョン：" . A_AhkVersion . "`n" . startupma_bitVar . "`n" . startupma_sign . "`n"
