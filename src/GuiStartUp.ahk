@@ -45,7 +45,7 @@ Menu, Tray, Add, 終了する(&X), sup_SubExitApp
 Menu, Tray, NoStandard
 Menu, Tray, Click, 1
 Menu, Tray, Default, 表示する(&H)
-Menu, Tray, Tip, TextWriteStartUp
+Menu, Tray, Tip, WriteStartupBU
 
 
 sglo_hwndEditBox11_1 := hwndEditBox11_1

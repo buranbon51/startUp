@@ -5,7 +5,7 @@
 ; ウインドウを表示するのではなくて、文字を出力するだけ
 gusupf_cleatedDateStartUp2(){
 	version := "v1.00"
-	cleatedDate := "2023年3月20日"
+	cleatedDate := "2023年4月14日"
 	softName := "WriteStartupBU"
 
 	message := "`nソフト名　　：　" . softName . "`nバージョン　：　" . version . "`n更新日　　 ：　" . cleatedDate . "`n作者　　　　：　ブランボン`n"
@@ -17,7 +17,7 @@ gusupf_cleatedDateStartUp2(){
 gusupf_cleatedDateStartUp(){
 	version := "v1.00"
 	cleatedDate := "2019年10月12日"
-	softName := "TextWriteStartUp"
+	softName := "WriteStartupBU"
 
 	Gui, 12:Add, Text,   X70 Y10 , %softName%
 

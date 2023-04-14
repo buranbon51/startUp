@@ -9,7 +9,7 @@ global sglo_winSizePosIni := sglo_myStartUpUserFolder  . "\windowSizePos.ini"
 
 global sglo_optionTxtFile := sglo_myStartUpUserFolder  . "\option.txt"
 
-global sglo_guiTitle := "_TextWriteStartUp"
+global sglo_guiTitle := "_WriteStartupBU"
 ;global sglo_versionGuiTitle := "StartUpのバージョン情報"
 
 global sglo_delimiter := ","
