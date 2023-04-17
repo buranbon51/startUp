@@ -5,6 +5,9 @@ star_startUpExecute(){
 	; ユーザーが追加して使用する関数を実行
 	res := userpese_exchangeScriptExecute(sglo_appsName, sglo_appsArgs, sglo_appsWorkDir, sglo_appsOption, sglo_exchangeScript, num)
 	if( res == False ){
+		dbQuouteChar := """"
+		sglo_appsName := star_dbQuouteEdgeTrim(sglo_appsName)
+		sglo_appsName := dbQuouteChar . sglo_appsName . dbQuouteChar
 		appNameArgs := sglo_appsName . " " . sglo_appsArgs
 		appNameArgs := Trim(appNameArgs)
 		if(sglo_appsOption == ""){
@@ -113,10 +116,9 @@ star_insertObj(){
 			if(flag) {
 				optionObj := Object()
 				optionObj.Insert(str_1)
-				str_2 := Trim( str_2, """" )
 				optionObj.Insert(str_2)
 				optionObj.Insert(str_3)
-				str_4 := Trim( str_4, """" )
+				str_4 := star_dbQuouteEdgeTrim(str_4)
 				optionObj.Insert(str_4)
 				optionObj.Insert(str_5)
 				optionObj.Insert(str_6)
@@ -217,9 +219,23 @@ star_checkIsNotSecond(str){
 	return True
 }
 
+; 両端の " " を取る
+star_dbQuouteEdgeTrim(str_local){
+	dbQuouteChar := """"
+	StringLeft, LChar, str_local, 1
+	if(LChar == dbQuouteChar){
+		StringTrimLeft, strTmp, str_local, 1
+		StringRight, rChar, strTmp, 1
+		if(rChar == dbQuouteChar){
+			StringTrimRight, str_local, strTmp, 1
+		}
+	}
+	return str_local
+}
+
 ; 正しければ False
 star_checkIsNotFile(str, num){
-	str := Trim( str, """" )
+	str := star_dbQuouteEdgeTrim(str)
 	IfExist,  %str%
 	{
 		return  False
@@ -229,9 +245,8 @@ star_checkIsNotFile(str, num){
 
 ; 空の場合 フォルダ名を返す
 star_workDirIsNull(str, appName){
-	str := Trim( str, """" )
 	if(str == ""){
-		appName := Trim( appName, """" )
+		appName := star_dbQuouteEdgeTrim(appName)
 		IfExist,  %appName%
 		{
 			SplitPath, appName , , OutDir
@@ -248,7 +263,7 @@ star_checkIsNotDir(str, num){
 		return  False
 	}
 
-	str := Trim( str, """" )
+	str := star_dbQuouteEdgeTrim(str)
 	type := FileExist(str)
 	IfInString, type, D
 	{
